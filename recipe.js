@@ -50,7 +50,7 @@ app.use(express.static(__dirname + '/public'))
 
 app.use(express.static(__dirname + '/uploads'))
 
-const port = process.env.PORT || 80
+const port = process.env.PORT || 8000
 
 // Core Pages
 
@@ -103,7 +103,7 @@ app.get('/api/chefs', api_handlers.chefs)
 
 if(require.main === module) {
     app.listen(port, () => {
-      console.log( `Express started in `+ `${app.get('env')} mode at http://localhost:${port}` +
+      console.log( `Express started at http://localhost:${port}` +
         '; press Ctrl-C to terminate.' )
     })
   } else {
