@@ -1,0 +1,16 @@
+#name[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+#search {
+    background-color: #04AA6D;
+    width: 25%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-left: none;
+    cursor: pointer;
+}

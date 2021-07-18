@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/recipe.css">
+<center>
+    {{#if url}}
+        <h1>
+            <a href={{url}}>{{name}}</a>
+        </h1>
+    {{else}}
+    <h1>
+       {{name}}
+    </h1>
+    {{/if}}
+    <img src = {{img_link}} alt = {{alt}}>
+    {{#if Telephone_Number}}
+    <br>
+        Call Now <a href="tel:{{Telephone_Number}}">{{Telephone_Number}}</a> 
+    {{/if}}
+    {{#if address}}
+    <br>
+        Visit {{address}}
+    {{/if}}
+</center>

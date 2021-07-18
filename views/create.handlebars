@@ -1,0 +1,62 @@
+<link rel="stylesheet" href="/css/login.css">
+<link rel="stylesheet" href="/css/item_adder.css">
+<script src="/js/add.js"></script>
+
+<form action="/add" method="POST" enctype="multipart/form-data">
+    <label for = "name">Recipe Name</label>
+    <input type = "text" name = "name" id = "name" value = "Recipe Name Here!" onfocus = "this.value=''">
+    <input type="file" accept="image/*" id="Recipe_Image" name="Recipe_Image">
+    <label for = "duration">Duration in Minutes</label>
+    <input type = "number" name = "duration" id = "duration" value = 0 min=0>
+    <label for = "Dificulty">Dificulty</label>
+    <select name = "Dificulty" id = "Dificulty">
+        <option value = 1>1</option>
+        <option value = 2>2</option>
+        <option value = 3>3</option>
+        <option value = 4>4</option>
+        <option value = 5>5</option>
+    </select>
+    <table>
+        <td>
+            <select name = "ingredient" id = "ingredient">
+                {{#each Ingredients}}
+                    <option value = {{name}}>{{name}}</option>
+                {{/each}}
+            </select>
+        </td>
+        <td><input type="number" id="Quantity" value="0"><div id="Measurement"></div></td>
+        <td>
+            <button type="button" onclick="add_item('ingredient','Quantity')">Add Item</button>
+        </td>
+        <td style="overflow-y: scroll;">
+            <ul>
+                {{#each Ingredients}}
+                    <label for = "{{name}}" id = "label_{{name}}" style="display: none;" onclick="remove(this)">{{name}}</label>
+                    <br>
+                {{/each}}
+            </ul>
+        </td>
+    </table>
+    <input type="text" id="Ingredients" name="Ingredients" style="display: none;">
+    Next step
+    <table>
+        <tr>
+            <td>
+                <input type="text" id="recipe_Step">
+            </td>
+            <td>
+                <button type="button" onclick="add_step('recipe_Step', 'steps', 'Actual_Steps')">Add 1 Step at a time</button>
+            </td>
+        </tr>
+        <tr>
+            <td style="overflow-y: scroll;">
+                <div id="steps" name="steps" style="
+                background-color: white;
+                border-radius: 5px;"></div>
+            </td>
+        </tr>    
+    </table>
+    <input type="text" id="Actual_Steps" name="Actual_Steps" style="display: none;">
+    <button type="submit">Submit</button>
+    <button type="reset" style="background-color: red;">Reset</button>
+</form>

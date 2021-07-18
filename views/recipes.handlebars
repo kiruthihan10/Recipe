@@ -1,0 +1,25 @@
+<center><h1>Recipes Page</h1></center>
+<link rel="stylesheet" href="/css/searchbar.css">
+<link rel="stylesheet" href="/css/main_numbers.css">
+<link rel="stylesheet" href="/css/gallery_images.css">
+<script src="/js/search.js"></script>
+<script>
+
+    function change_name() 
+    {
+        document.getElementById("Search Name").innerHTML = document.getElementById("name").value;
+        document.getElementById("Search Name Label").style.visibility = "visible";
+        document.getElementById("Search Name").style.visibility = "visible";
+        load_recipe_data();
+    }
+
+</script>
+
+<center>
+    <input type="text" id="name" name="name" value="What do you want to eat?" onfocus="this.value=''">
+    <br>
+    <button id="search" onclick="change_name()">Search</button>
+</center>
+<h3 id="Search Name Label" style="visibility: hidden;">Search Results For </h3><h2 id="Search Name" style="visibility: hidden;"></h2>
+
+<div id="Results"></div>

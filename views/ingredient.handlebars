@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/css/recipe.css">
+<center>
+    <h1>
+        {{name}}
+    </h1>
+    <img src = {{img_link}} alt = {{alt}}>
+</center>
+<h2>Nutritients</h2>
+<table>
+    <th>
+        <td>Quantity</td>
+    </th>
+    {{#each Nutrients}}
+    <tr>
+        <td>
+            {{name}}
+        </td>
+        {{#if Quantity}}
+            <td id="quantity">
+                {{Quantity}} {{Measurement}}
+            </td>
+        {{/if}}
+    </tr>
+    {{/each}}
+</table>
+<h2>Stores</h2>
+<table>
+    <th>
+        <td>Price</td>
+    </th>
+    {{#each Stores}}
+    <tr>
+        <td>
+            <a href={{url}}>{{name}}</a>
+        </td>
+        <td id="quantity">
+            {{Price}} {{Measurement}}
+        </td>
+    </tr>
+    {{/each}}
+</table>

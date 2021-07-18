@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/css/login.css">
+
+<form action="/signing_up" method="POST">
+    <label for="uname">UserName</label>
+    <input type="text" name="uname" value="User Name Here!" onfocus="this.value=''">
+    <label for="password">Password</label>
+    <input type="text" name="password" value="Password Here!" onfocus="this.value='';this.type='password'">
+    <label for="Age">Age</label>
+    <input type="Number" name="Age" value="18" onfocus="this.value=''">
+    <label for="Gender">Gender</label>
+    <br>
+    <label for="Male">Male</label><input type="radio" name="Gender" value="false" checked="checked" id="Male">
+    <label for="Female">Female</label><input type="radio" name="Gender" value="true" id="Female">
+    <center>
+        <button type="submit">Sign Up</button>
+    </center>
+</form>

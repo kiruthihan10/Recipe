@@ -1,0 +1,28 @@
+input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=radio]
+{
+    width: 30%;
+}
+
+button {
+    background-color: #04AA6D;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-left: none;
+    cursor: pointer;
+}
+
+#signup{
+    width: 30%;
+    top: 100%;
+    color: black;
+    background-color: limegreen;
+}
