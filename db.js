@@ -3,9 +3,6 @@ const credentials = require('./config')
 var passwordHash = require('password-hash')
 const {GridFsStorage} = require('multer-gridfs-storage');
 
-
-
-const chef_pics = require('./models/chef_pics');
 const multer = require('multer');
 
 const { connectionString } = credentials.postgres
