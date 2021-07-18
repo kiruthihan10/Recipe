@@ -24,7 +24,8 @@
     "multer-gridfs-storage": "^5.0.0",
     "mysql": "^2.18.1",
     "password-hash": "^1.2.2",
-    "xml": "^1.0.1"
+    "xml": "^1.0.1",
+    "cookie-parser": "^1.4.5"
   },
   "engines": {
     "node": "14.17.1"
