@@ -50,7 +50,7 @@ app.use(express.static(__dirname + '/public'))
 
 app.use(express.static(__dirname + '/uploads'))
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 80
 
 // Core Pages
 
