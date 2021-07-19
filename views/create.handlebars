@@ -20,7 +20,7 @@
         <td>
             <select name = "ingredient" id = "ingredient">
                 {{#each Ingredients}}
-                    <option value = {{name}}>{{name}}</option>
+                    <option value = '{{name}}'>{{name}}</option>
                 {{/each}}
             </select>
         </td>
@@ -29,11 +29,8 @@
             <button type="button" onclick="add_item('ingredient','Quantity')">Add Item</button>
         </td>
         <td style="overflow-y: scroll;">
-            <ul>
-                {{#each Ingredients}}
-                    <label for = "{{name}}" id = "label_{{name}}" style="display: none;" onclick="remove(this)">{{name}}</label>
-                    <br>
-                {{/each}}
+            <ul id="ingredients_list">
+                <p></p>
             </ul>
         </td>
     </table>
