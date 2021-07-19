@@ -30,7 +30,13 @@
             <a href="/Chefs">Chefs</a>
             <a href="/about">About</a>
             {{#if logged_out}}
+              <a href="/login" id="special_top"><center>Login</center></a>
             {{else}}
+              {{#if pro}}
+                <a href="/create"><center>Add New Recipe</center></a>
+              {{else}}
+                <a href="/pro"><center>Become a chef</center></a>
+              {{/if}}
             <a href="/logout" id="logout">Logout</a>
             {{/if}}
           </div>
@@ -38,22 +44,7 @@
         </center>
           
       </header>
-      {{#if logged_out}}
-        <div class="sidenav">
-            <button><a href="/login"><center>Login</center></a></button><br>
-            <button><a href="/signup"><center>Signup</center></a></button>
-        </div>
-      {{else}}
-        {{#if pro}}
-        <div class="sidenav">
-          <button><a href="/create"><center>Add New Recipe</center></a></button><br>
-        </div>
-        {{else}}
-        <div class="sidenav">
-          <button><a href="/pro"><center>Become a chef</center></a></button><br>
-        </div>
-        {{/if}}
-      {{/if}}
+      
       {{{body}}}
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

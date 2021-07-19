@@ -66,6 +66,8 @@ app.get('/chefs', handlers.chefs)
 
 app.get('/create', handlers.create)
 
+app.get('/about', handlers.about)
+
 // Inidividual Pages
 
 app.get('/recipes/:name/:author', handlers.recipe)
