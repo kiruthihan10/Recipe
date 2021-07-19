@@ -1,14 +1,18 @@
 <link rel="stylesheet" href="/css/login.css">
 <link rel="stylesheet" href="/css/item_adder.css">
+<link rel="stylesheet" href="/css/main_numbers.css">
 <script src="/js/add.js"></script>
+<script src="/js/filter.js"></script>
 
 <form action="/add" method="POST" enctype="multipart/form-data">
-    <label for = "name">Recipe Name</label>
+    <h2>Name of the Food</h2>
+    <label for = "name"><h2Recipe Name></h2></label>
     <input type = "text" name = "name" id = "name" value = "Recipe Name Here!" onfocus = "this.value=''">
+    <h2>Food Picture</h2>
     <input type="file" accept="image/*" id="Recipe_Image" name="Recipe_Image">
-    <label for = "duration">Duration in Minutes</label>
+    <label for = "duration"><h2>Duration in Minutes</h2></label>
     <input type = "number" name = "duration" id = "duration" value = 0 min=0>
-    <label for = "Dificulty">Dificulty</label>
+    <label for = "Dificulty"><h2>Dificulty</h2></label>
     <select name = "Dificulty" id = "Dificulty">
         <option value = 1>1</option>
         <option value = 2>2</option>
@@ -16,6 +20,8 @@
         <option value = 4>4</option>
         <option value = 5>5</option>
     </select>
+    <h2>Ingredients</h2>
+    <input type="text" id = "search" onkeyup="filter_ingredients()" value="Filter Ingredients Here" onfocus="this.value=''">
     <table>
         <td>
             <select name = "ingredient" id = "ingredient">
@@ -35,7 +41,7 @@
         </td>
     </table>
     <input type="text" id="Ingredients" name="Ingredients" style="display: none;">
-    Next step
+    <h2>Steps</h2>
     <table>
         <tr>
             <td>

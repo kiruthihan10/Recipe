@@ -7,7 +7,7 @@ function add_item(select_id, quantity_id) {
     if (!document.getElementById('ingredients_list').innerHTML.includes(selected_value)){
         //document.getElementById('label_'+selected_value).style.display = "inline"
         //document.getElementById('label_'+selected_value).innerHTML = selected_value + " " + selected_quantity;
-        document.getElementById('Ingredients').value = document.getElementById('Ingredients').value+selected_value+","+selected_quantity+";"
+        document.getElementById('Ingredients').value = document.getElementById('Ingredients').value+selected_value+"<>"+selected_quantity+";"
         var li = document.createElement("li")
         var label = document.createElement("label")
         label.innerHTML = selected_value+ " " + selected_quantity
@@ -26,7 +26,7 @@ function remove(label) {
     const ingredients = document.getElementById('Ingredients').value.split(";")
     act_value = ""
     for (i=0;i<ingredients.length-1;i++) {
-        if (ingredients[i].split(",")[0].trim() == selected_value) 
+        if (ingredients[i].split("<>")[0].trim() == selected_value) 
         {
             console.log(ingredients[i])
             delete ingredients[i]

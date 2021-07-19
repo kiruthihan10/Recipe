@@ -101,6 +101,8 @@ app.get('/api/recipes', api_handlers.recipes)
 
 app.get('/api/chefs', api_handlers.chefs)
 
+app.get('/api/ingredients', api_handlers.ingredients)
+
 app.use(handlers.notFound)
 app.use(handlers.serverError)
 

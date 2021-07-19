@@ -40,7 +40,6 @@ function load_chef_data()
         result = "";
         for(var i = 0; i < myobj.chefs.length; i++) {
             const chef = myobj.chefs[i];
-            console.log(chef.url)
             result += result_render(chef.url, chef.img_link, chef.alt, chef.name);
         }
         document.getElementById("Results").innerHTML = result;
