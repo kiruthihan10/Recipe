@@ -50,6 +50,7 @@ app.use(express.static(__dirname + '/public'))
 
 app.use(express.static(__dirname + '/uploads'))
 
+const port = process.env.PORT || 8000
 
 // Core Pages
 
@@ -105,6 +106,7 @@ app.use(handlers.serverError)
 
 if(require.main === module) {
     app.listen(port, () => {
+      console.log( `Express started at http://localhost:${port}` +
         '; press Ctrl-C to terminate.' )
     })
   } else {
