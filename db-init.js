@@ -9,7 +9,7 @@ const user_table_create = `
 CREATE TABLE IF NOT EXISTS users (
     user_name varchar(200) NOT NULL UNIQUE PRIMARY KEY,
     password text NOT NULL,
-    AGE integer,
+    DOB date,
     GENDER boolean
 );
 `
@@ -50,7 +50,7 @@ const seedUsers = async db_con => {
     INSERT INTO users (
         user_name,
         password,
-        AGE,
+        DOB,
         GENDER
     ) VALUES ($1, $2, $3, $4);
     `
@@ -58,7 +58,7 @@ const seedUsers = async db_con => {
     await db_con.query(sql, [
         'Monica',
         passwordHash.generate('Chandler'),
-        29,
+        '10/10/1997',
         true
     ])
 }

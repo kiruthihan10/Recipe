@@ -3,6 +3,9 @@ const credentials = require('./config')
 var passwordHash = require('password-hash')
 const {GridFsStorage} = require('multer-gridfs-storage');
 
+
+
+const chef_pics = require('./models/chef_pics');
 const multer = require('multer');
 
 const { connectionString } = credentials.postgres
@@ -42,13 +45,13 @@ module.exports = {
         }
     },
 
-    add_User : async (user_name, password, age, gender) => {
+    add_User : async (user_name, password, dob, gender) => {
         password = passwordHash.generate(password)
         await db_con.query(
-            'INSERT INTO users (user_name, password, AGE, GENDER) '+
+            'INSERT INTO users (user_name, password, DOB, GENDER) '+
                 'VALUES ($1, $2, $3, $4) '+
                'ON CONFLICT DO NOTHING'
-            ,[user_name, password, age, gender]
+            ,[user_name, password, dob, gender]
         )
     },
 
@@ -75,6 +78,8 @@ module.exports = {
     },
 
     authenticate : async (user_name, password) => {
+        console.log(user_name)
+        console.log(password)
         const { rows } = await db_con.query('SELECT password FROM users WHERE user_name = $1',[user_name])
         const hashed_password = rows[0].password
         return passwordHash.verify(password, hashed_password)
