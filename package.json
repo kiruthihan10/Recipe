@@ -1,6 +1,6 @@
 {
   "name": "recipe",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Web site to share Recipes",
   "main": "reciepe.js",
   "scripts": {
@@ -14,8 +14,6 @@
     "express": "^4.16.3",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.17.2",
-    "morgan": "^1.10.0",
-    "multiparty": "^4.2.2",
     "@uppy/core": "^1.19.2",
     "@uppy/dashboard": "^1.20.2",
     "@uppy/tus": "^1.9.2",
@@ -31,5 +29,9 @@
   },
   "engines": {
     "node": "14.17.1"
-  }
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {}
 }

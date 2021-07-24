@@ -3,9 +3,6 @@ const credentials = require('./config')
 var passwordHash = require('password-hash')
 const {GridFsStorage} = require('multer-gridfs-storage');
 
-
-
-const chef_pics = require('./models/chef_pics');
 const multer = require('multer');
 
 const { connectionString } = credentials.postgres
@@ -18,8 +15,6 @@ const storage = new GridFsStorage({
         filename = req.session.userName
     }
 })
-
-const upload = multer({ storage })
 
 module.exports = {
     get_Chefs_Count : async () => {

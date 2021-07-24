@@ -1,7 +1,6 @@
 const express = require('express')
 const expressHandlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
-const multiparty = require('multiparty')
 const expressSession = require('express-session')
 const cookieParser = require('cookie-parser')
 
