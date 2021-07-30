@@ -97,6 +97,19 @@ module.exports = {
         )
     },
 
+    get_post_report_count : async(post, author) => {
+        const { rows } = await db_con.query('SELECT COUNT(*) FROM report WHERE name = $1 AND author = $2;',[post, author])
+        return rows[0].count
+    },
+
+    remove_post : async(post, author) => {
+        await db_con.query(
+            `
+            DELETE FROM recipe WHERE name = $1 AND author = $2;
+            `,[post, author]
+        )
+    },
+
     add_recipe : async (name, author, duration, dificulty, ingredients, steps, pic_id) => {
         await db_con.query(
             `
@@ -115,7 +128,7 @@ module.exports = {
 
     get_n_recipes : async () => {
         const { rows } = await db_con.query('SELECT COUNT(*) FROM recipe')
-        return rows[0].count
+        return parseInt(rows[0].count)
     },
 
     get_recipe : async(name, author) => {
@@ -125,7 +138,6 @@ module.exports = {
 
     search_recipe : async(name) => {
         const { rows } = await db_con.query('SELECT * FROM recipe WHERE name LIKE $1;',["%"+name+"%"])
-        console.log(rows)
         return rows
     },
 
@@ -142,5 +154,16 @@ module.exports = {
     get_last_recipes : async(number) => {
         const { rows } = await db_con.query('SELECT * FROM recipe limit $1',[number])
         return rows
+    },
+
+    get_steps_of_recipe : async (name, author) => {
+        const { rows } = await db_con.query(`SELECT steps FROM recipe WHERE name = $1 AND author = $2;`,[name.toLowerCase(), author.toLowerCase()])
+        return rows[0].steps.slice(0, -1)
+    },
+
+    get_ingredients_of_recipe : async (name, author) => {
+        const { rows } = await db_con.query(`SELECT ingredients FROM recipe WHERE name = $1 AND author = $2;`,[name.toLowerCase(), author.toLowerCase()])
+        return rows[0].ingredients.slice(0,-1)
     }
+    
 }

@@ -9,14 +9,17 @@
   /* Display the columns below each other instead of side by side on small screens */
   @media screen and (max-width: 650px) {
     .column {
-      width: 100%;
+      width: 80%;
+      height : 10%;
       display: block;
     }
   }
   
   /* Add some shadows to create a card effect */
   .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: lemonchiffon;
+    height:100%;
   }
   
   /* Some left and right padding inside the container */
@@ -49,4 +52,13 @@
   
   .button:hover {
     background-color: #555;
+  }
+
+  img {
+    border-radius: 5px 5px 0 0;
+  }
+
+  .card >a> img {
+    width: 100%;
+    aspect-ratio: 4/3;
   }

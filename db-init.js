@@ -37,7 +37,21 @@ const recipe_table_create = `
             dificulty integer,
             ingredients jsonb,
             steps jsonb,
-            pic_id bigint
+            pic_id bigint,
+            PRIMARY KEY (name, author)
+        )`
+
+const report_table_create = `
+        CREATE TABLE IF NOT EXISTS report (
+            user_name varchar(200) NOT NULL
+                REFERENCES users(user_name)
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+            post varchar(100) NOT NULL,
+            author varchar(200) NOT NULL,
+            PRIMARY KEY (user_name, post, author),
+            CONSTRAINT fk_recipe
+                FOREIGN KEY(post, author) REFERENCES recipe(name, author)
         )`
 
 const getUsersCount = async db_con => {
@@ -79,6 +93,8 @@ db_con.connect().then(
             await db_con.query(chef_table_create)
             console.log('Creating Recipe Table')
             await db_con.query(recipe_table_create)
+            console.log('Creating Report Table')
+            await db_con.query(report_table_create)
         }
         catch(err) {
             console.log('ERROR: could not initalize database')

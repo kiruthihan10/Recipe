@@ -5,3 +5,8 @@
 table{
     width: 50%;
 }
+
+#food_pic {
+    width: 50%;
+    aspect-ratio: 4/3;
+}
