@@ -1,9 +1,9 @@
-function result_render(link, img_link, alt, name)
+function result_render(link, img_link, alt, name, backup_img = "")
 {
     var render = "<div class='column'>"+
         "<div class='card'>"+
             "<a href="+link+">"+
-                "<img src = "+img_link+" alt="+alt+" style='width:100%'>"+
+                "<img src = "+img_link+" alt="+alt+" style='width:100%' onerror='javascript:this.src=\"/img/default_chef.jpg\"'>"+
                 "<div class='container'>"+
                         "<h2>"+name+"</h2>"+
                         "<p><button class='button'>View</button></p>"+
