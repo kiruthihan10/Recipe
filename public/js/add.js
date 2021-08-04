@@ -5,6 +5,7 @@ function add_item(select_id, quantity_id) {
     selected_quantity = document.getElementById(quantity_id).value
     //if (document.getElementById("label_"+selected_value).style.display == "none"){
     if (!document.getElementById('ingredients_list').innerHTML.includes(selected_value)){
+        document.getElementById('ingredients_list').style.overflowY="scroll"
         //document.getElementById('label_'+selected_value).style.display = "inline"
         //document.getElementById('label_'+selected_value).innerHTML = selected_value + " " + selected_quantity;
         document.getElementById('Ingredients').value = document.getElementById('Ingredients').value+selected_value+"<>"+selected_quantity+";"
@@ -49,7 +50,6 @@ function add_step(inp_id, render_id, act_id){
     }
     render_output+="</ol>"
     document.getElementById(render_id).innerHTML=render_output
-    document.getElementById(render_id).style.border="1px solid green"
     x++;
     document.getElementById(act_id).value = document.getElementById(act_id).value+step+";"
 }

@@ -1,39 +1,55 @@
-<link rel="stylesheet" href="/css/recipe.css">
-<link rel="stylesheet" href="/css/gallery_images.css">
-<center>
-    {{#if url}}
-        <h1>
-            {{name}}
-        </h1>
-    {{else}}
-    <h1>
-       {{name}}
-    </h1>
-    {{/if}}
-    <img src = {{img_link}} alt = {{alt}} style="width: 25%;" onerror='javascript:this.src="/img/default_chef.jpg"'>
-    {{#if url}}
-    <br>
-        Check now <a href={{url}}>{{url}}</a> 
-    {{/if}}
-    {{#if Telephone_Number}}
-    <br>
-        Call Now <a href="tel:{{Telephone_Number}}">{{Telephone_Number}}</a> 
-    {{/if}}
-    <h3>Other Famous Dishes by {{name}}...</h3>
-    <div class="row">
-        {{#each recipes}}
-            <div class="column">
-                <div class="card">
-                    <a href={{link}}>
-                        <img src = {{img_link}} alt={{alt}} style="width:100%">
-                        <div class="container">
-                            <h2>{{name}}</h2>
-                            <p><button class="button">View</button></p>
-                        </div>
-                    </a>
-                </div>
+<div class="block">
+    <section class="section is-size-5">
+        <div class="columns">
+            <div class="column is-half">
+        <center>
+            {{#if url}}
+                <h1 class="title is-family-primary">
+                    {{name}}
+                </h1>
+            {{else}}
+            <h1 class="title is-family-primary"></h1>>
+                {{name}}
+            </h1>
+            {{/if}}
+                <figure class="image is-4by3">
+                    <img src = {{img_link}} alt = {{alt}} onerror='javascript:this.src="/img/default_chef.jpg"'>
+                </figure>
+            {{#if url}}
+            <br>
+                Check now <a href={{url}}>{{url}}</a> 
+            {{/if}}
+            {{#if Telephone_Number}}
+            <br>
+                Call Now <a href="tel:{{Telephone_Number}}">{{Telephone_Number}}</a> 
+            {{/if}}
+            </center>
             </div>
-        {{/each}}
-    </div>
-    
-</center>
+            <div class="column is-half">
+            <h1 class="title is-family-primary">Dishes by {{name}}...</h1>
+            <div class="columns">
+                {{#each recipes}}
+                    <div class="column is-half">
+                        <div class="card">
+                            <a href='{{link}}'>
+                                <div class="card-image">
+                                    <figure class="image is-256x256 is-4by3">
+                                        <img src = {{img_link}} alt={{alt}}>
+                                    </figure>
+                                </div>
+                                <div class="content">
+                                    <center>
+                                    <h2>{{name}}</h2>
+                                    <p><button class="button is-primary">View</button></p>
+                                    </center>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+            </div> 
+        </center>
+        </div>
+    </section>
+</div>

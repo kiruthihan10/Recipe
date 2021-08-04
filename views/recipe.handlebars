@@ -1,34 +1,43 @@
-<link rel="stylesheet" href="/css/recipe.css">
-<link rel="stylesheet" href="/css/main_numbers.css">
-
 <div id="post_ID" style="display: none;">{{id}}</div>
-<center>
-    <h1 id="name">
-        {{name}}
-    </h1>
-    <h2>By <a href="/chefs/{{by}}">{{by}}</a></h2>
-    <img id = "food_pic" src = {{img_link}} alt = {{alt}}>
-</center>
-<h2>Ingredients</h2>
-<table>
-    <th>
-        <td>Quantity</td>
-    </th>
-    {{#each Ingredients}}
-    <tr>
-        <td>
-            <a href={{url}}>{{name}}</a>
-        </td>
-        <td id="quantity">
-            {{Quantity}} {{Measurement}}
-        </td>
-    </tr>
-    {{/each}}
-</table>
-<h2>Steps</h2>
-<ol>
-    {{{steps}}}
-</ol>
-{{#unless logged_out}}
-    <button onclick="report({{name}},{{by}})" id="report" style="background-color: red;">Report</button>
-{{/unless}}
+<div class="columns">
+    <div class="column is-half">
+        <center>
+            <h1 class="title is-family-primary" id="name">
+                {{name}}
+            </h1>
+            <h2 class="subtitle">By <a href="/chefs/{{by}}" class="is-family-secondary">{{by}}</a></h2>
+            <figure class="image is-4by3">
+                <img id = "food_pic" src = {{img_link}} alt = {{alt}}>
+            </figure>
+        </center>
+    </div>
+    <div class="column is-half">
+        <div class="section">
+            <h2 class="subtitle">Ingredients</h2>
+                <div class="columns">
+                    <div class="column is-one-fifth is-offset-four-fifths">
+                        Quantity
+                    </div>
+                </div>
+                {{#each Ingredients}}
+                <div class="columns">
+                    <div class="column is-four-fifths">
+                        {{name}}
+                    </div>
+                    <div class="column">
+                        {{Quantity}} {{Measurement}}
+                    </div>
+                </div>
+                {{/each}}
+        </div>
+        <div class="section">
+        <h2 class="subtitle">Steps</h2>
+        <ol>
+            {{{steps}}}
+        </ol>
+        {{#unless logged_out}}
+            <button onclick="report({{name}},{{by}})" id="report" style="background-color: red;">Report</button>
+        {{/unless}}
+        </div>
+    </div>
+</div>

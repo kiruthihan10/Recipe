@@ -1,7 +1,4 @@
-<center><h1>Recipes Page</h1></center>
-<link rel="stylesheet" href="/css/searchbar.css">
-<link rel="stylesheet" href="/css/main_numbers.css">
-<link rel="stylesheet" href="/css/gallery_images.css">
+<h1 class="title is-family-primary"><center>Recipes Page</center></h1>
 <script src="/js/search.js"></script>
 <script>
 
@@ -16,10 +13,15 @@
 </script>
 
 <center>
-    <input type="text" id="name" name="name" value="What do you want to eat?" onfocus="this.value=''">
-    <br>
-    <button id="search" onclick="change_name()">Search</button>
+    <div class="field">
+        <p class="control has-icons-left">
+            <input class="input is-primary is-medium is-rounded is-family-code" type="text" id="name" name="name" placeholder="What do you want to Eat??">
+        </p>
+    </div>
+    <div class="field">
+        <button class="button is-primary is-size-4" id="search" onclick="change_name()">Search</button>
+    </div>
 </center>
-<h3 id="Search Name Label" style="visibility: hidden;">Search Results For </h3><h2 id="Search Name" style="visibility: hidden;"></h2>
+<h3 class="subtitle has-text-success" id="Search Name Label" style="visibility: hidden;">Search Results For </h3><h2 id="Search Name" style="visibility: hidden;"></h2>
 
 <div id="Results"></div>

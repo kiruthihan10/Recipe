@@ -1,65 +1,123 @@
-<link rel="stylesheet" href="/css/login.css">
-<link rel="stylesheet" href="/css/item_adder.css">
-<link rel="stylesheet" href="/css/main_numbers.css">
 <script src="/js/add.js"></script>
 <script src="/js/filter.js"></script>
-
-<form action="/add" method="POST" enctype="multipart/form-data">
-    <h2>Name of the Food</h2>
-    <label for = "name"><h2Recipe Name></h2></label>
-    <input type = "text" name = "name" id = "name" value = "Recipe Name Here!" onfocus = "this.value=''">
-    <h2>Food Picture</h2>
-    <input type="file" accept="image/*" id="Recipe_Image" name="Recipe_Image">
-    <label for = "duration"><h2>Duration in Minutes</h2></label>
-    <input type = "number" name = "duration" id = "duration" value = 0 min=0>
-    <label for = "Dificulty"><h2>Dificulty</h2></label>
-    <select name = "Dificulty" id = "Dificulty">
-        <option value = 1>1</option>
-        <option value = 2>2</option>
-        <option value = 3>3</option>
-        <option value = 4>4</option>
-        <option value = 5>5</option>
-    </select>
-    <h2>Ingredients</h2>
-    <input type="text" id = "search" onkeyup="filter_ingredients()" value="Filter Ingredients Here" onfocus="this.value=''">
-    <table>
-        <td>
-            <select name = "ingredient" id = "ingredient">
-                {{#each Ingredients}}
-                    <option value = '{{name}}'>{{name}}</option>
-                {{/each}}
-            </select>
-        </td>
-        <td><input type="number" id="Quantity" value="0"><div id="Measurement"></div></td>
-        <td>
-            <button type="button" onclick="add_item('ingredient','Quantity')">Add Item</button>
-        </td>
-        <td style="overflow-y: scroll;">
-            <ul id="ingredients_list">
-                <p></p>
-            </ul>
-        </td>
-    </table>
-    <input type="text" id="Ingredients" name="Ingredients" style="display: none;">
-    <h2>Steps</h2>
-    <table>
-        <tr>
-            <td>
-                <input type="text" id="recipe_Step">
-            </td>
-            <td>
-                <button type="button" onclick="add_step('recipe_Step', 'steps', 'Actual_Steps')">Add 1 Step at a time</button>
-            </td>
-        </tr>
-        <tr>
-            <td style="overflow-y: scroll;">
-                <div id="steps" name="steps" style="
-                background-color: white;
-                border-radius: 5px;"></div>
-            </td>
-        </tr>    
-    </table>
-    <input type="text" id="Actual_Steps" name="Actual_Steps" style="display: none;">
-    <button type="submit">Submit</button>
-    <button type="reset" style="background-color: red;">Reset</button>
-</form>
+<script src="/js/file-selection.js"></script>
+<div class="block">
+    <section class="section is-size-4">
+        <form action="/add" method="POST" enctype="multipart/form-data">
+            <div class="field">
+            <label class="label" for = "name">Recipe Name</label>
+            </div>
+            <div class="field">
+            <input type = "text" name = "name" id = "name" class="input is-link is-medium is-rounded is-family-code" >
+            </div>
+            <div class="field">
+            <label class="label" for="Recipe_Image">Food Picture</label>
+            </div>
+            <div class="field">
+                <div class="file is-info has-name is-boxed is-centered is-small" id="img_upload">
+                    <label class="file-label">
+                        <input class="file-input" type="file" accept="image/*" id="Profile Pic" name="Recipe_Image" required>
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="icofont-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Your Picture...
+                            </span>
+                        </span>
+                        <span class="file-name"></span>
+                    </label>
+                </div>
+            </div>
+            <div class="field">
+            <label class="label" for = "duration">Duration in Minutes</label>
+            </div>
+            <div class="field">
+            <input type = "number" name = "duration" id = "duration" class="input is-link is-medium is-rounded is-family-code" min=0>
+            </div>
+            <div class="field">
+            <label class="label" for = "Dificulty">Dificulty</label>
+            </div>
+            <div class="field">
+            <div class="select">
+                <select name = "Dificulty" id = "Dificulty">
+                    <option value = 1>1</option>
+                    <option value = 2>2</option>
+                    <option value = 3>3</option>
+                    <option value = 4>4</option>
+                    <option value = 5>5</option>
+                </select>
+            </div>
+            </div>
+            <div class="field">
+            <label class="label" for ="search">Ingredients</label>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-two-fifths">
+                        <div class="field">
+                        <input type="text" id = "search" onkeyup="filter_ingredients()" class="input is-link is-medium is-rounded is-family-code" >
+                        </div>
+                        <div class="select">
+                            <select class="is-family-code" name = "ingredient" id = "ingredient">
+                                {{#each Ingredients}}
+                                    <option value = '{{name}}'>{{name}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="field">
+                            <input type="number" id="Quantity" value="0"  class="input is-link is-medium is-rounded is-family-code" >
+                        </div>
+                        <div class="field">
+                            <div id="Measurement"></div>
+                            <button type="button" class="button is-medium is-primary is-fullwidth" onclick="add_item('ingredient','Quantity')">Add Item</button>
+                        </div>
+                    </div>
+                    <div class="column is-two-fifths">
+                        <aside class="menu">
+                            <ul id="ingredients_list" class="menu-list">
+                                <p></p>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <input type="text" id="Ingredients" name="Ingredients" style="display: none;">
+            </div>
+            <div class="field">
+                <label class="label">Steps</label>
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-two-fifths">
+                        <input type="text" id="recipe_Step" class="input is-link is-medium is-rounded is-family-code" >
+                    </div>
+                    <div class="column">
+                        <button type="button" class="button is-medium is-primary is-fullwidth" onclick="add_step('recipe_Step', 'steps', 'Actual_Steps')">Add 1 Step at a time</button>
+                    </div>
+                    <div class="column is-two-fifths">
+                        <div id="section">
+                            <div id="steps" name="steps"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <input type="text" id="Actual_Steps" name="Actual_Steps" style="display: none;">
+            </div>
+            <div class="field">
+                <div class="columns">
+                    <div class="column is-four-fifths">
+                        <button type="submit" class="button is-medium is-success is-fullwidth">Submit</button>
+                    </div>
+                    <div class="column">
+                        <button type="reset" class="button is-medium is-danger is-fullwidth">Reset</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</div>

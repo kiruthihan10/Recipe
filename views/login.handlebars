@@ -1,14 +1,28 @@
-<link rel="stylesheet" href="/css/login.css">
-
-<form action="/authentication" method="POST">
-    <label for="uname">UserName</label>
-    <input type="text" name="uname" value="User Name Here!" onfocus="this.value=''">
-    <label for="password">Password</label>
-    <input type="text" name="password" value="Password Here!" onfocus="this.value='';this.type='password'">
-    <center>
-        <button type="submit">Log-In</button>
-    </center>
-</form>
-<center>
-    <a href="/signup"><button id="signup">Sign Up</button></a>
-</center>
+<div class="block">
+    <section class="section is-size-5">
+            <form action="/authentication" method="POST">
+                <div class="field">
+                    <label class="label" for="uname">UserName</label>
+                </div>
+                <div class="field">
+                    <input class="input is-primary is-medium is-rounded is-family-code" type="text" name="uname" placeholder="User Name Here!">
+                </div>
+                <div class="field">
+                    <label class="label" for="password">Password</label>
+                </div>
+                <div class="field">
+                    <input class="input is-primary is-medium is-rounded is-family-code" type="password" name="password" placeholder="Password Here!">
+                </div>
+                <div class="field">
+                    <center>
+                        <button class="button is-primary is-medium" type="submit">Log-In</button>
+                    </center>
+                </div>
+            </form>
+    </section>
+    <section class="section">
+            <center>
+                <a href="/signup"><button class="button is-link is-medium"id="signup">Sign Up</button></a>
+            </center>
+    </section>
+</div>

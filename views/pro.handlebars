@@ -1,13 +1,37 @@
-<link rel="stylesheet" href="/css/login.css">
 
 <form action="/upgrade" method="post" enctype="multipart/form-data">
-    <label for="url">Your Website Address</label>
-    <input type="text" name="url" value="If Available" onfocus="this.value=''">
-    <label for="Telephone">Your Telephone Number</label>
-    <input type="number" name="Telephone" value="" onfocus="this.value=''">
-    <label for="Profile Pic">Your Picture</label>
-    <input type="file" accept="image/*" id="Profile Pic" name="Profile Pic">
-    <center>
-        <button type="submit">Become Chef</button>
-    </center>
+    <div class="field">
+        <label for="url">Your Website Address</label>
+    </div>
+    <div class="field">
+        <input type="text" name="url" placeholder="URL for your website if available" class="input is-link is-medium is-rounded is-family-code">
+    </div>
+    <div class="field">
+        <label for="Telephone">Your Telephone Number</label>
+    </div>
+    <div class="field">
+        <input type="number" name="Telephone" placeholder="Telephone Number to contact if available" class="input is-link is-medium is-rounded is-family-code">
+    </div>
+    <div class="field">
+        <div class="file is-danger has-name is-boxed is-centered" id="img_upload">
+            <label class="file-label">
+                <input class="file-input" type="file" accept="image/*" id="Profile Pic" name="Profile Pic" required>
+                <span class="file-cta">
+                    <span class="file-icon">
+                        <i class="icofont-upload"></i>
+                    </span>
+                    <span class="file-label">
+                        Your Picture...
+                    </span>
+                </span>
+                <span class="file-name"></span>
+            </label>
+        </div>
+    </div>
+    <div class="field">
+        <center>
+            <button class="button is-link is-success is-medium" type="submit">Become Chef</button>
+        </center>
+    </div>
 </form>
+<script src="/js/file-selection.js"></script>
